@@ -1,0 +1,30 @@
+---
+#group 2 and group 1 interchange
+- name: "Do a Demo - Play 1"
+  hosts: group2
+#serial execution of batch size of 1   
+  #serial: 1
+  tasks:
+    - name: demo task 1
+      debug:
+        msg: "this is task 1" 
+
+    - debug: var=inventory_hostname
+
+    - name: demo task 2
+      fail:
+        msg: "this is task 2"
+      when: inventory_hostname == "54.165.64.57" 
+
+- name: "Do another Demo - Play 2"
+  hosts: group1
+  serial: 1
+  tasks:
+    - name: demo task 3
+      debug:
+        msg: "this is task 3"
+
+    - name: demo task 4
+      debug:
+        msg: "this is task 4"
+
