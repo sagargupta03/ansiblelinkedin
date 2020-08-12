@@ -1,0 +1,26 @@
+---
+
+- name: "Do a Demo"
+  hosts: group1
+
+  tasks:
+    - name: demo task 1
+      debug:
+        msg: "this is task 1"
+
+    - name: demo task 2
+      debug:
+        msg: "this is task 2"
+
+- name: "Do another Demo"
+  hosts: group2
+
+  tasks:
+    - name: demo task 3
+      debug:
+        msg: "this is task 3"
+
+    - name: demo task 4
+      debug:
+        msg: "this is task 4"
+
